@@ -1,7 +1,7 @@
 <?php
   if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(empty($_POST['usrLogin']) && empty($_POST['usrPassword'])){
-        echo 'Login: ' . $_POST['usrLogin'] . 'Password: ' . $_POST['usrPassword'];
+        
     }
     else{
       require_once('user.php');
