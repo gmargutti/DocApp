@@ -1,9 +1,11 @@
 <?php
 require_once("user.php");
+require_once("DAO/ConnMySQL.php");
 class LoginDAO{
 
 function getUser($user){
-  $conn = new mysqli('localhost', 'pma', '', 'game_test');
+  $mysqlCnx = new ConnMySQL();
+  $conn = $mysqlCnx->getConn();
   if($conn->connect_error){
     die("Connection Failed: " . $conn->connect_error);
   }
