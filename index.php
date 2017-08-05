@@ -1,17 +1,15 @@
 <?php
   if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    require_once('user.php');
-    require_once('Control/LoginControl.php');
-    $loginControl = new LoginControl();
-    $user = new User($_POST['usrLogin'], $_POST['usrPassword']);
-    $control = new LoginControl();
-    echo $control->validateLogin($user) . '</br>';
-    $user2 = new User("gmargutti", "333");
-    if ($user->getLogin() == $user2->getLogin() && $user->getPw() == $user2->getPw()) {
-      echo "OK";
+    if(empty($_POST['usrLogin']) && empty($_POST['usrPassword'])){
+        echo 'Login: ' . $_POST['usrLogin'] . 'Password: ' . $_POST['usrPassword'];
     }
     else{
-      echo "Failed to Login";
+      require_once('user.php');
+      require_once('Control/LoginControl.php');
+      $loginControl = new LoginControl();
+      $user = new User($_POST['usrLogin'], $_POST['usrPassword']);
+      $validate = $loginControl->validateLogin($user);
+      var_dump($validate);
     }
   }
 ?>
