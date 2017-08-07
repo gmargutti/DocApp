@@ -1,15 +1,20 @@
 <?php
   if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(empty($_POST['usrLogin']) && empty($_POST['usrPassword'])){
-        
+
     }
     else{
       require_once('user.php');
       require_once('Control/LoginControl.php');
+      session_start();
+      $_SESSION['test'] = $_POST['usrLogin'];
       $loginControl = new LoginControl();
       $user = new User($_POST['usrLogin'], $_POST['usrPassword']);
       $validate = $loginControl->validateLogin($user);
-      var_dump($validate);
+      if($validate){
+        header('Location: http://localhost/Teste/func.php');
+        exit();
+      }
     }
   }
 ?>

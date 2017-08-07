@@ -1,8 +1,7 @@
 <?php
-  if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $soma = (int) $_POST['txtVal1'] + (int) $_POST['txtVal2'];
-    $val1 = $_POST['txtVal1'];
-    $val2 = $_POST['txtVal2'];
-  }
-  echo $soma;
+  session_start();
+  echo $_SERVER["HTTP_HOST"];
+  require_once("Util/Redirect.php");
+  $redir = new Redirect();
+  echo $redir->getURL("/func.php");
 ?>
