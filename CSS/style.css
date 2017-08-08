@@ -44,3 +44,15 @@ i{
   right: 10px;
   color: #404040;
 }
+.menuHeader{
+  background-image: url("/Teste/images/happydentwhite.jpg");
+  width: 100vw;
+  height: 250px;
+  position: absolute;
+  top: 0;
+  background-repeat: repeat-x;
+}
+.logoHeader{
+  padding-top: 75px;
+  padding-left: 50px;
+}

@@ -25,6 +25,14 @@
 </head>
 <title>Test Page PHP</title>
 <body>
+  <div class="menuHeader">
+    <div class="logoHeader">
+      <img src="images/logo.png" height="64px" width="64px" />
+    </div>
+    <div style="background-color: blue; width: 100vw; height: 50px; position: absolute; top: 200;">
+
+    </div>
+  </div>
   <form action="index.php" method="post">
     <div id="content">
       <table>
