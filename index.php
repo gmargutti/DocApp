@@ -25,43 +25,8 @@
 </head>
 <title>Test Page PHP</title>
 <body>
-  <div class="menuHeader">
-    <div class="logoHeader">
-      <img src="images/logo.png" height="64px" width="64px" />
-    </div>
-    <div style="background-color: blue; width: 100vw; height: 50px; position: absolute; top: 200;">
+  <?php include("header.php"); ?>
+  <div id="content">
 
-    </div>
   </div>
-  <form action="index.php" method="post">
-    <div id="content">
-      <table>
-      <tr>
-        <td>
-          <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>
-          <p><font color="white">Login</font></p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div id="placeHolder_Icon">
-          <input type="text" name="usrLogin" value="<?php echo isset($_POST['usrLogin']) ? $_POST['usrLogin'] : ''; ?>" tabindex="1"
-          placeholder="Username" id="input_Borders"/>
-          <i class="fa fa-user-o" id="fa_Icon"></i>
-        </div>
-        </td>
-        <td rowspan="2">
-          <input id="btn_Login" type="submit" value="" />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div id="placeHolder_Icon">
-            <input type="password" name="usrPassword" tabindex="2" placeholder="Password" id="input_Borders"/>
-            <i class="fa fa-key" id="fa_Icon"></i>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </form>
 </body>
