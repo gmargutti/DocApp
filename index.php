@@ -12,8 +12,6 @@
       $user = new User($_POST['usrLogin'], $_POST['usrPassword']);
       $validate = $loginControl->validateLogin($user);
       if($validate){
-        require_once('Util/Redirect.php');
-        $redir = new Redirect();
         header('Location: ' . "/Teste/func.php");
         exit();
       }
