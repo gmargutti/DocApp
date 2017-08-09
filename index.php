@@ -1,23 +1,4 @@
-<?php
-  if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    if(empty($_POST['usrLogin']) && empty($_POST['usrPassword'])){
-
-    }
-    else{
-      require_once('user.php');
-      require_once('Control/LoginControl.php');
-      session_start();
-      $_SESSION['test'] = $_POST['usrLogin'];
-      $loginControl = new LoginControl();
-      $user = new User($_POST['usrLogin'], $_POST['usrPassword']);
-      $validate = $loginControl->validateLogin($user);
-      if($validate){
-        header('Location: ' . "/Teste/func.php");
-        exit();
-      }
-    }
-  }
-?>
+<?php error_reporting(E_ALL); ?>
 <head>
   <link rel="stylesheet" type="text/css" href="CSS/style.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
