@@ -2,29 +2,29 @@
 require_once ('user.php');
 require_once ('Control/LoginControl.php');
 $loginControl = new LoginControl();
-if (isset($_COOKIE['User'])) {
-    $user_Data = explode(';', $_COOKIE['User']);
-    $user = new User($user_Data[0], $user_Data[1]);
-    $validate = $loginControl->validateLogin($user);
-    if ($validate) {
-        header('Location: ' . "/DocApp/func.php");
-        exit();
-    }
-} else {
+// if (isset($_COOKIE['User'])) {
+//     $user_Data = explode(';', $_COOKIE['User']);
+//     $user = new User($user_Data[0], $user_Data[1]);
+//     $validate = $loginControl->validateLogin($user);
+//     if ($validate) {
+//         header('Location: ' . "/DocApp/func.php");
+//         exit();
+//     }
+// } else {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (empty($_POST['txtLogin']) || empty($_POST['txtSenha'])) {
             
         } else {
-            $validate = $loginControl->validateLogin($user);
             $user = new User($_POST['txtLogin'], $_POST['txtSenha']);
+            $validate = $loginControl->validateLogin($user);
             if ($validate) {
-                header('Location: ' . "/DocApp/func.php");
-                setcookie('User', $user->getLogin() . ';' . $user->getPw());
+                //setcookie('User', $user->getLogin() . ';' . $user->getPw());
+                header('Location: ' . "/DocApp/func.php");                
                 exit();
             }
         }
     }
-}
+//}
 ?>
 <head>
 <link rel="stylesheet" type="text/css" href="CSS/style.css">
