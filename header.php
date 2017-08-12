@@ -15,6 +15,7 @@ $loginControl = new LoginControl();
         if (empty($_POST['txtLogin']) || empty($_POST['txtSenha'])) {
             
         } else {
+            session_start();
             $user = new User($_POST['txtLogin'], $_POST['txtSenha']);
             $validate = $loginControl->validateLogin($user);
             if ($validate) {

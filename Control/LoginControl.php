@@ -1,6 +1,6 @@
 <?php
 require_once ('user.php');
-require_once ('DAO/LoginDAO.php');
+include('DAO/LoginDAO.php');
 
 class LoginControl
 {
@@ -9,10 +9,22 @@ class LoginControl
     {
         $dao = new LoginDAO();
         $user_Request = $dao->getUser($user);
-        if($user->getPw() == $user_Request->getPw()) {
+        if (password_verify($user->getPassword(), $user_Request->getPassword())){
             return true;
         } else {
             return false;
+        }
+    }
+    
+    public function register(User $user){
+        $dao = new LoginDAO();
+        if($dao->userExists($user)){
+            //erro - já existente
+            echo 'Username is already taken';
+        }
+        else{
+            $user->setPassword(password_hash($user->getPassword(), PASSWORD_BCRYPT));
+            $dao->registerUser($user);
         }
     }
 }

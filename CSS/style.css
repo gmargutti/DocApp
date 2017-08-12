@@ -1,4 +1,4 @@
-#content{
+body{
   width: 100%;
   height: 100%;
   background-image: url("/DocApp/images/happyfull.jpg");
@@ -7,11 +7,11 @@
   z-index: 0;
   background-repeat: no-repeat;
   background-size: cover;
-}
-body{
-  background-color:  #404040;
-  border: 0;
   margin: 0;
+}
+#content{
+	width: 355px;
+	margin: 0 auto;
 }
 #btn_Login{
   background-color: DarkRed;
@@ -19,10 +19,7 @@ body{
   border-radius: 4px;
   height: 100px;
   width: 40px;
-  background-image: url("/DocApp/images/login_icon.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-left: 5px;
+  background-color: #6666ff;
 }
 #input_Borders{
   border-radius: 4px;

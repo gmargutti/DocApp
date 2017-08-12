@@ -8,6 +8,7 @@
     {
       $this->login = $user_login === NULL ? "" : $user_login;
       $this->password = $user_pw === NULL ? "" : $user_pw;
+      $this->id = 0;
     }
     function setLogin($user_login){
       $this->login = $user_login === NULL ? "" : $user_login;
@@ -18,7 +19,7 @@
     function getLogin(){
       return $this->login;
     }
-    function getPw(){
+    function getPassword(){
       return $this->password;
     }
     /**
