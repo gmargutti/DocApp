@@ -5,11 +5,12 @@ include('DAO/LoginDAO.php');
 class LoginControl
 {
 
-    function validateLogin(User $user)
+    function validateLogin(User &$user)
     {
         $dao = new LoginDAO();
         $user_Request = $dao->getUser($user);
         if (password_verify($user->getPassword(), $user_Request->getPassword())){
+            $user = $user_Request;
             return true;
         } else {
             return false;
