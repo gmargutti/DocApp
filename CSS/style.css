@@ -1,82 +1,122 @@
-body{
-  width: 100%;
-  height: 100%;
-  background-image: url("/DocApp/images/happyfull.jpg");
-  position: absolute;
-  top: 0;
-  z-index: 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0;
+body {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	margin: 0;	
+	font-family: 'Roboto', sans-serif;
 }
-#content{
-	width: 355px;
+
+#content {
+}
+
+#btn_Login {
+	background-color: DarkRed;
+	border: 0;
+	border-radius: 4px;
+	height: 100px;
+	width: 40px;
+	background-color: #6666ff;
+}
+
+#input_Borders {
+	border-radius: 4px;
+	border: 0;
+	height: 40px;
+	width: 300px;
+	opacity: 0.7;
+	padding-left: 10px;
+}
+
+p {
+	display: inline-block;
+	padding-left: 10px;
+	margin: 0;
+}
+
+img {
+	display: inline-block;
+}
+
+i {
+	color: White
+}
+
+#placeHolder_Icon {
+	height: 40px;
+	width: 300px;
+	position: relative;
+}
+
+#fa_Icon {
+	position: absolute;
+	top: 25%;
+	right: 10px;
+	color: #404040;
+}
+
+.menuHeader {
+	width: 100%;
+	height: 250px;
+	position: relative;
+	top: 0;
+	background-repeat: repeat-x;
+	z-index: 1;
+}
+
+.logoHeader {
+	padding-top: 75px;
+	position: relative;
 	margin: 0 auto;
+	width: 400px;
+	height: 64px;
 }
-#btn_Login{
-  background-color: DarkRed;
-  border: 0;
-  border-radius: 4px;
-  height: 100px;
-  width: 40px;
-  background-color: #6666ff;
+
+.logoText {
+	vertical-align: top;
+	display: inline-block;
+	font-size: 200%;
+	height: 64px;
+	font-weight: bold;
+	color: blue;
 }
-#input_Borders{
-  border-radius: 4px;
-  border: 0;
-  height: 40px;
-  width: 300px;
-  opacity: 0.7;
-  padding-left: 10px;
+
+.loginHeader {
+	float: right;
+	position: relative; top 0;
+	padding-right: 10px;
+	padding-top: 10px;
 }
-p{
-  display: inline-block;
-  padding-left: 10px;
-  margin: 0;
+
+.menu {
+	padding-top: 25px;
+	position: relative;
+	margin: 0 auto;
+	width: 800px;
+	height: 68px;
+	background-color: rgba(255, 255, 255, 0.5);
+	opacity: 0.8;
+	padding: 0;
 }
-img{
-  display:  inline-block;
+table strong{
+	font-size: 25;
+	color: white;
 }
-i{
-  color: White
+.divider{
+	border-right: 1px solid;
+	border-color: white;
+	padding-right: 10px;
+	padding-left: 10px;
 }
-#placeHolder_Icon{
-  height: 40px;
-  width: 300px;
-  position: relative;
+#tbImg_Padding{
+	padding-left: 2px;
 }
-#fa_Icon{
-  position: absolute;
-  top: 25%;
-  right: 10px;
-  color: #404040;
-}
-.menuHeader{
-  width: 100vw;
-  height: 250px;
-  position: relative;
-  top: 0;
-  background-repeat: repeat-x;
-  z-index: 1;
-}
-.logoHeader{
-  padding-top: 75px;
-  position: relative;
-  margin: 0 auto;
-  width: 400px;
-  height: 64px;
-}
-.logoText{
-  vertical-align: top;
-  display: inline-block;
-  font-size: 200%;
-  height: 64px;
-  font-weight: bold;
-  color: blue;
-}
-.loginHeader{
-  float: right;
-  position: relative;
-  top 0;
-  padding-right: 10px;
+#indexBG{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("/DocApp/images/background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
 }

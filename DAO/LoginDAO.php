@@ -1,7 +1,6 @@
 <?php
 require_once ("user.php");
 require_once ("DAO/ConnMySQL.php");
-
 class LoginDAO
 {
     private $mysqlCnx;
@@ -20,6 +19,7 @@ class LoginDAO
         if (!is_null($row)) {
             $user2->setPassword($row['Password']);
             $user2->setId($row['ID']);
+            $user2->setToken($row['Token']);
         }
         else{
             $user2 = new User('', '');
@@ -43,13 +43,13 @@ class LoginDAO
     
     public function registerUser(User $user){
         $conn = $this->mysqlCnx->getConn();
-        $sql = $conn->prepare("INSERT INTO USER (Username, Password) VALUES (?, ?)");
-        $sql->bind_param("ss", $user->getLogin(), $user->getPassword());
+        $sql = $conn->prepare("INSERT INTO USER (Username, Password, Token) VALUES (?, ?, ?)");
+        $sql->bind_param("sss", $user->getLogin(), $user->getPassword(), $user->getToken());
         $sql->execute();
     }
     private function getUserRow(User $user){
         $conn = $this->mysqlCnx->getConn();
-        $sql = $conn->prepare("SELECT ID, Username, Password from user WHERE Username = ?");
+        $sql = $conn->prepare("SELECT ID, Username, Password, Token from user WHERE Username = ?");
         $login = $user->getLogin();
         $sql->bind_param("s", $login);
         $sql->execute();
@@ -64,6 +64,39 @@ class LoginDAO
         else{
             return null;
         }
+    }        
+    
+    public function updateToken(int $id, string $newToken){
+        $conn = $this->mysqlCnx->getConn();
+        if ($conn->connect_error) {
+            die("Connection Failed: " . $conn->connect_error);
+        }
+        $sql = $conn->prepare("UPDATE User SET Token = ? WHERE ID = ?");
+        $sql->bind_param("si", $newToken, $id);     
+        $sql->execute();
+    }
+    
+    public function getToken(int $id){
+        $conn = $this->mysqlCnx->getConn();
+        if ($conn->connect_error) {
+            die("Connection Failed: " . $conn->connect_error);
+        }
+        $sql = $conn->prepare("SELECT Token FROM User WHERE ID = ?");
+        $sql->bind_param("s", $id);
+        $sql->execute();
+        $result = $sql->get_result();
+        $row = $result->fetch_assoc();
+        return $row['Token'];
+    }
+    
+    public function updateTokenByLogin(User $user, string $newToken){
+        $conn = $this->mysqlCnx->getConn();
+        if ($conn->connect_error) {
+            die("Connection Failed: " . $conn->connect_error);
+        }
+        $sql = $conn->prepare("UPDATE User SET Token = ? WHERE Username = ?");
+        $sql->bind_param("ss", $newToken, $user->getLogin());
+        $sql->execute();
     }
 }
 ?>

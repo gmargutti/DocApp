@@ -9,7 +9,12 @@
 <title>Test Page PHP</title>
 <body>
 <?php
-    include ("header.php");
+include ("header.php");
 ?>
-  <div id="content"></div>
+	<div id="indexBG">
+		
+	</div>
+  <div id="content">
+  	
+  </div>
 </body>
