@@ -20,7 +20,8 @@ if (isset($_SESSION['logged'])) {
         }
     }
 } else {
-    header('Location' . 'Control/user_validation.php');
+    $_SESSION['from'] = $_SERVER['REQUEST_URI'];
+    header('Location: ' . '/DocApp/Control/user_validation.php');
 }
 ?>
 <head>
