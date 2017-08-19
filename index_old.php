@@ -18,17 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<title>Test Page PHP</title>
+<title>Register</title>
 <body>
   <?php include("header.php"); ?>
   <form action="" method="post">
+  <div id="indexBG"></div>
 		<div id="content">
 			<table>
 				<tr>
-					<td><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>
-						<p>
-							<font color="white">Register</font>
-						</p></td>
+					<td>
+					<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>
+					<p>Register</p>
+					</td>
 				</tr>
 				<tr>
 					<td>

@@ -8,6 +8,8 @@ body {
 }
 
 #content {
+	width: fit-content;
+	margin: 0 auto;
 }
 
 #btn_Login {
@@ -119,4 +121,5 @@ table strong{
 	background-image: url("/DocApp/images/background.png");
 	background-repeat: no-repeat;
 	background-size: cover;
+	z-index: -1;
 }
