@@ -41,7 +41,7 @@ class LoginControl
         if($db_Token === $token){
             $newToken = Random::generateString();
             $dao->updateToken($id, $newToken);
-            setcookie('Data', $id . '$' . $newToken, Time::addMinute(1), '/');
+            setcookie('Data', $id . '$' . $newToken, Time::addTime("m", 1), '/');
             $valid = true;
         }
         return $valid;
@@ -51,7 +51,7 @@ class LoginControl
         $dao = new LoginDAO();
         $newToken = Random::generateString();
         $dao->updateTokenByLogin($user, $newToken);
-        setcookie('Data', $user->getId() . '$' . $newToken, Time::addMinute(1), '/');
+        setcookie('Data', $user->getId() . '$' . $newToken, Time::addTime("m", 1), '/');
     }
 }
 ?>

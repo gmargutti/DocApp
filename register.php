@@ -22,9 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				<img alt="" src="/DocApp/images/logo2.png" width="156px"
 					height="156px">
 			</div>
-			<div class="registerMenu">
-				
-			</div>
+			<div class="registerMenu"></div>
 			<div class="registerText docApp_Text">
 				<strong>DocApp</strong>
 			</div>
@@ -38,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					<td>
 						<div id="placeHolder_Icon">
 							<input type="text" name="usrLogin" value="" tabindex="1"
-								placeholder="Username" id="input_Borders" /> <i
+								placeholder="Usuario" id="input_Borders" /> <i
 								class="fa fa-user-o" id="fa_Icon"></i>
 						</div>
 					</td>
@@ -48,8 +46,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					<td>
 						<div id="placeHolder_Icon">
 							<input type="password" name="usrPassword" tabindex="2"
-								placeholder="Password" id="input_Borders" /> <i
-								class="fa fa-key" id="fa_Icon"></i>
+								placeholder="Senha" id="input_Borders" /> <i class="fa fa-key"
+								id="fa_Icon"></i>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="placeHolder_Icon">
+							<input type="text" name="user_Nome" placeholder="Nome"
+								id="input_Borders" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="placeHolder_Icon">
+							<input type="text" name="user_DataNascimento"
+								placeholder="Data de Nascimento" id="input_Borders" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="placeHolder_Icon">
+							<input type="text" name="user_RG" placeholder="RG"
+								id="input_Borders" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="placeHolder_Icon">
+							<input type="text" name="user_CPF" placeholder="CPF"
+								id="input_Borders" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="placeHolder_Icon">
+							<input type="text" name="user_Logradouro" placeholder="Nome"
+								id="input_Borders" />
 						</div>
 					</td>
 				</tr>
