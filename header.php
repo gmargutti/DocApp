@@ -6,9 +6,7 @@ session_start();
 if (isset($_SESSION['logged'])) {
     if (! $_SESSION['logged']) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (empty($_POST['txtLogin']) || empty($_POST['txtSenha'])) {
-                
-            } else {
+            if (empty($_POST['txtLogin']) || empty($_POST['txtSenha'])) {} else {
                 $user = new User($_POST['txtLogin'], $_POST['txtSenha']);
                 $validate = $loginControl->validateLogin($user);
                 if ($validate) {
@@ -28,6 +26,23 @@ if (isset($_SESSION['logged'])) {
 <link rel="stylesheet" type="text/css" href="CSS/style.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto"
 	rel="stylesheet">
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#QuemSomos").on("click", function(e){
+    	e.preventDefault();
+    	var id = $(this).get(0).id;
+    	var target;
+    	switch(id){
+    	case "QuemSomos":
+    		target = $("#contentQuemSomos");
+    		break;
+    	}
+    	$("html, body").stop().animate({
+    			scrollTop: target.offset().top
+    		}, 500);
+    });
+});
+</script>
 </head>
 <body>
 	<div class="menuHeader">
@@ -50,12 +65,16 @@ include ($path);
 		<div class="menu">
 			<table>
 				<tr>
-					<td class="divider"><a href="index.php"> <img src="images/logo.png"
+					<td class="divider"><a href="index.php"> <img src="images/logo2.png"
 							height="64px" width="64px" />
-					</a></td>
-					<td class="divider"><strong>Quem Somos</strong> <img alt=""
-						src="Images/down_arrow.png" height="16px" width="16px"
-						id="tbImg_Padding"></td>
+					</a>
+					</td>
+					<td>
+						<a href="" id="QuemSomos">
+						<strong>Quem Somos</strong>
+						<img alt="" src="Images/down_arrow.png" height="16px" width="16px" id="tbImg_Padding" />
+						</a>
+					</td>
 				</tr>
 			</table>
 		</div>

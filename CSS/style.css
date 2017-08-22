@@ -7,9 +7,11 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-#content {
-	width: fit-content;
-	margin: 0 auto;
+.register {
+	width: 100%;
+	position: absolute;
+	top: 300px;
+	text-align: -webkit-center;	
 }
 
 #btn_Login {
@@ -60,7 +62,7 @@ i {
 .menuHeader {
 	width: 100%;
 	height: 250px;
-	position: relative;
+	position: absolute;
 	top: 0;
 	background-repeat: repeat-x;
 	z-index: 1;
@@ -114,7 +116,7 @@ table strong{
 	padding-left: 2px;
 }
 #indexBG{
-	position: absolute;
+	position: relative;
 	top: 0;
 	width: 100%;
 	height: 100%;
@@ -122,4 +124,35 @@ table strong{
 	background-repeat: no-repeat;
 	background-size: cover;
 	z-index: -1;
+}
+#contentQuemSomos{
+	height: 800px;
+}
+td a{
+	text-decoration: none;
+}
+.headerRegister{
+	background: #787878;
+}
+.registerText{
+	width: fit-content;
+	margin: 0 auto;
+	position: relative;
+	color: white;
+	font-size: 3em;
+	padding-top: 10px;
+}
+.registerMenu{
+	height: 30px;
+	background-color: black;
+}
+.docApp_Image{
+	width: fit-content;
+	position: absolute;
+	top: 65px;
+	left: 50px;
+}
+.docApp_Text{
+	font-size: 6em;
+	padding-top: 30px;
 }

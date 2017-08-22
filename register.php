@@ -1,8 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (empty($_POST['usrLogin']) || empty($_POST['usrPassword'])) {
-        
-    } else {
+    if (empty($_POST['usrLogin']) || empty($_POST['usrPassword'])) {} else {
         require_once ('./Control/LoginControl.php');
         require_once ("./user.php");
         $control = new LoginControl();
@@ -15,22 +13,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <link rel="stylesheet" type="text/css" href="CSS/style.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto"
 	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <title>Register</title>
 <body>
-  <?php include("header.php"); ?>
-  <form action="" method="post">
-  <div id="indexBG"></div>
-		<div id="content">
+	<form action="" method="post">
+		<div class="menuHeader headerRegister">
+			<div class="docApp_Image">
+				<img alt="" src="/DocApp/images/logo2.png" width="156px"
+					height="156px">
+			</div>
+			<div class="registerMenu">
+				
+			</div>
+			<div class="registerText docApp_Text">
+				<strong>DocApp</strong>
+			</div>
+			<div class="registerText">
+				<strong>Cadastrar</strong>
+			</div>
+		</div>
+		<div class="register">
 			<table>
-				<tr>
-					<td>
-					<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>
-					<p>Register</p>
-					</td>
-				</tr>
 				<tr>
 					<td>
 						<div id="placeHolder_Icon">

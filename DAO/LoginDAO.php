@@ -43,13 +43,16 @@ class LoginDAO
     
     public function registerUser(User $user){
         $conn = $this->mysqlCnx->getConn();
-        $sql = $conn->prepare("INSERT INTO USER (Username, Password, Token) VALUES (?, ?, ?)");
-        $sql->bind_param("sss", $user->getLogin(), $user->getPassword(), $user->getToken());
+        $sql = $conn->prepare("INSERT INTO USER_LOGIN (Username, Password, Token) VALUES (?, ?, ?)");
+        $user_Login = $user->getLogin();
+        $user_Password = $user->getPassword();
+        $user_Token = $user->getToken();
+        $sql->bind_param("sss", $user_Login, $user_Password, $user_Token);
         $sql->execute();
     }
     private function getUserRow(User $user){
         $conn = $this->mysqlCnx->getConn();
-        $sql = $conn->prepare("SELECT ID, Username, Password, Token from user WHERE Username = ?");
+        $sql = $conn->prepare("SELECT ID, Username, Password, Token from USER_LOGIN WHERE Username = ?");
         $login = $user->getLogin();
         $sql->bind_param("s", $login);
         $sql->execute();
@@ -71,7 +74,7 @@ class LoginDAO
         if ($conn->connect_error) {
             die("Connection Failed: " . $conn->connect_error);
         }
-        $sql = $conn->prepare("UPDATE User SET Token = ? WHERE ID = ?");
+        $sql = $conn->prepare("UPDATE USER_LOGIN SET Token = ? WHERE ID = ?");
         $sql->bind_param("si", $newToken, $id);     
         $sql->execute();
     }
@@ -81,7 +84,7 @@ class LoginDAO
         if ($conn->connect_error) {
             die("Connection Failed: " . $conn->connect_error);
         }
-        $sql = $conn->prepare("SELECT Token FROM User WHERE ID = ?");
+        $sql = $conn->prepare("SELECT Token FROM USER_LOGIN WHERE ID = ?");
         $sql->bind_param("s", $id);
         $sql->execute();
         $result = $sql->get_result();
@@ -94,7 +97,7 @@ class LoginDAO
         if ($conn->connect_error) {
             die("Connection Failed: " . $conn->connect_error);
         }
-        $sql = $conn->prepare("UPDATE User SET Token = ? WHERE Username = ?");
+        $sql = $conn->prepare("UPDATE USER_LOGIN SET Token = ? WHERE Username = ?");
         $sql->bind_param("ss", $newToken, $user->getLogin());
         $sql->execute();
     }
