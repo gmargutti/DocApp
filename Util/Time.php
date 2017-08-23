@@ -20,23 +20,25 @@ class Time{
 //         return time() + (Time::$month * $months);
 //     }
     public static function addTime(string $type, int $qtd = 1){
+        $add = 0;
         switch($type){
             case "m":
-                return Time::$minute * $qtd;
+                $add = Time::$minute * $qtd;
                 break;
             case "h":
-                return Time::$hour * qtd;
+                $add = Time::$hour * $qtd;
                 break;
             case "d": 
-                return Time::$day * qtd;
+                $add = Time::$day * $qtd;
                 break;
             case "w":
-                return Time::$week * qtd;
+                $add = Time::$week * $qtd;
                 break;
             case "M": 
-                return Time::$month * qtd;
+                $add = Time::$month * $qtd;
                 break;
         }
+        return time() + $add;
     }
 }
 ?>
