@@ -1,0 +1,66 @@
+.sideMenu{
+	position: fixed;
+	height: 100%;
+	width: 300px;
+	background-color: white;
+	top: 0;
+	left: 0;
+}
+.sideMenu .logo{
+	position: relative;
+	width: fit-content;
+	height: fit-content;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.sideMenu .login{
+	position: relative;
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 250px;
+}
+
+.sideMenu input{
+	margin-top: 10px;
+}
+.sideMenu #btnLogin{
+	margin: 0 auto;
+	margin-top: 10px;
+	display: block;
+	border-radius: 5px;
+	width: 250px;
+}
+.footer{
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	height: fit-content;
+}
+.footer input{
+	margin: 0 auto;
+	width: 250px;
+	display: block;
+}
+
+::-webkit-input-placeholder{
+	color: #66ffff;
+	font-weight: bolder;
+}
+
+.sideMenu .pages{
+	width: 250px;
+	margin: 0 auto;
+	padding-top: 10px;
+}
+.pages .links{
+	text-decoration: none;
+	font-size: 2em;
+	border-left: 10px solid white;
+	transition: border 0.5s;
+}
+.links:hover{
+	padding-left: 0px;
+	border-left: 10px solid;
+	border-color: #66ffff;
+	transition: border 0.5s;
+}

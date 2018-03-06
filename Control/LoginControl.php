@@ -1,5 +1,5 @@
 <?php
-require_once ('user.php');
+require_once ('Model/user.php');
 include('DAO/LoginDAO.php');
 include 'Util/Random.php';
 include 'Util/Time.php';
@@ -21,7 +21,7 @@ class LoginControl
     public function register(User $user){
         $dao = new LoginDAO();
         if($dao->userExists($user)){
-            //erro - já existente
+            //erro - jï¿½ existente
             echo 'Username is already taken';
         }
         else{
@@ -36,12 +36,13 @@ class LoginControl
         $user->setId($id);
         $user->setToken($token);
         $dao = new LoginDAO();
-        $db_Token = $dao->getToken($id);
+        $db_row = $dao->getToken($id);
         $valid = false;
-        if($db_Token === $token){
+        if($db_row['Token'] === $token){
             $newToken = Random::generateString();
             $dao->updateToken($id, $newToken);
-            setcookie('Data', $id . '$' . $newToken, Time::addTime("m", 1), '/');
+            setcookie('Data', $id . '$' . $newToken, Time::addTime("M", 1), '/');
+            $_SESSION['User_Nome'] = $db_row['Nome'];
             $valid = true;
         }
         return $valid;
@@ -51,7 +52,13 @@ class LoginControl
         $dao = new LoginDAO();
         $newToken = Random::generateString();
         $dao->updateTokenByLogin($user, $newToken);
-        setcookie('Data', $user->getId() . '$' . $newToken, Time::addTime("m", 1), '/');
+        setcookie('Data', $user->getId() . '$' . $newToken, Time::addTime("M", 1), '/');
+    }
+    
+    public function getSitePages(){
+        $dao = new LoginDAO();
+        $pages = $dao->getSitePages();
+        return $pages;
     }
 }
 ?>

@@ -6,11 +6,14 @@ session_start();
 if (isset($_SESSION['logged'])) {
     if (! $_SESSION['logged']) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (empty($_POST['txtLogin']) || empty($_POST['txtSenha'])) {} else {
+            if (empty($_POST['txtLogin']) || empty($_POST['txtSenha'])) {
+                
+            } else {
                 $user = new User($_POST['txtLogin'], $_POST['txtSenha']);
                 $validate = $loginControl->validateLogin($user);
                 if ($validate) {
                     $loginControl->updateTokenByLogin($user);
+                    $_SESSION['User_Nome'] = $user->getNome();
                     $_SESSION['logged'] = true;
                     header('Location: ' . "/DocApp/index.php");
                 }
@@ -57,16 +60,12 @@ if (isset($_SESSION['logged'])) {
 include ($path);
 ?>
 		</div>
-		<div class="logoHeader">
-			<div class="logoText">
-				<p>DocApp</p>
-			</div>
-		</div>
-		<div class="menu">
+		<div class="menuCenter">
+			<div class="menu">
 			<table>
 				<tr>
-					<td class="divider"><a href="index.php"> <img src="images/logo2.png"
-							height="64px" width="64px" />
+					<td class="divider"><a href="index.php"> <img src="images/logo_menu.png"
+							height="64px" width="120px" />
 					</a>
 					</td>
 					<td>
@@ -77,6 +76,7 @@ include ($path);
 					</td>
 				</tr>
 			</table>
+		</div>
 		</div>
 	</div>
 </body>

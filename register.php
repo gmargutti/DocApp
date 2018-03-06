@@ -2,17 +2,19 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST['usrLogin']) || empty($_POST['usrPassword'])) {} else {
         require_once ('./Control/LoginControl.php');
-        require_once ("./user.php");
+        require_once ("Model/user.php");
         $control = new LoginControl();
         $user = new User($_POST['usrLogin'], $_POST['usrPassword']);
+        $user->setCPF($_POST['user_CPF']);
+        $user->setDataNascimento($_POST['user_DataNascimento']);
+        $user->setLogradouro($_POST['user_Logradouro']);
+        $user->setNome($_POST['user_Nome']);
+        $user->setRG($_POST['user_RG']);
         $control->register($user);
     }
 }
 ?>
 <head>
-<link rel="stylesheet" type="text/css" href="CSS/style.css">
-<link href="https://fonts.googleapis.com/css?family=Roboto"
-	rel="stylesheet">
 </head>
 <title>Register</title>
 <body>
@@ -40,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 								class="fa fa-user-o" id="fa_Icon"></i>
 						</div>
 					</td>
-					<td rowspan="2"><input id="btn_Login" type="submit" value="OK" /></td>
 				</tr>
 				<tr>
 					<td>
@@ -90,6 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 								id="input_Borders" />
 						</div>
 					</td>
+				</tr>
+				<tr>
+					<td><input id="input_Borders" type="submit" value="OK"/></td>
 				</tr>
 			</table>
 		</div>
